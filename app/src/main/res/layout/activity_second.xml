@@ -41,7 +41,7 @@
         android:gravity="center"
         android:inputType="text"
         android:padding="12dp"
-        android:text="Aidil Ikhsan"
+        android:text="Aidil Ikhsan Ganteng"
         android:textColor="#FFFFFF"
         android:textColorHint="#88D4AF37"
         android:textSize="18sp"
