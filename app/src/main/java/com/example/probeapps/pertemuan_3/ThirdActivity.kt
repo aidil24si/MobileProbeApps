@@ -29,7 +29,7 @@ class ThirdActivity : AppCompatActivity() {
         }
 
         //Inisialisasi komponen
-        // Inisialisasi komponen
+        // Inisialisasi komponenn
         //val inputNoTujuan: EditText = findViewById(R.id.inputNoTujuan)
         //val btnKirim: Button = findViewById(R.id.btnKirim)
 
