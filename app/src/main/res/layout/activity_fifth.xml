@@ -1,79 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".pertemuan_5.FifthActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarFifth"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:title="Pertemuan 5"
-        app:titleTextColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@android:color/white"
+            app:subtitleTextColor="@android:color/white"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarFifth">
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWebView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Demo Menu &amp; Scroll"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnShowPopup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Show Popup Menu" />
+                android:text="Buka Web View" />
 
             <TextView
-                android:id="@+id/tvLongClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:background="#EEEEEE"
-                android:gravity="center"
-                android:padding="40dp"
-                android:text="Long Click Here for Action Mode"
-                android:textColor="@android:color/black" />
+                android:text="Halaman Kelima Project ProbeApps"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:lineSpacingExtra="8dp"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:text="PENGANTAR MATERI PERTEMUAN 5\n\n
-                Android UI Components: Menus and ScrollView\n\n
-                1. Option Menu\n
-                Option menu adalah menu utama untuk sebuah activity. Menu ini biasanya ditempatkan di pojok kanan atas layar (Action Bar/Toolbar). Digunakan untuk aksi yang berdampak global pada aplikasi seperti 'Settings', 'Search', atau 'Logout'.\n\n
-                2. Contextual Action Mode\n
-                Action mode adalah menu yang muncul sebagai respon terhadap interaksi user terhadap view tertentu, biasanya dipicu oleh 'Long Click'. Saat aktif, ia akan menutupi Toolbar utama dengan aksi yang relevan terhadap konten yang dipilih.\n\n
-                3. Popup Menu\n
-                Popup menu menampilkan daftar item secara vertikal yang menempel pada view yang memanggilnya. Sangat cocok untuk menyediakan menu tambahan yang tidak memakan tempat di layout utama.\n\n
-                4. ScrollView dan NestedScrollView\n
-                ScrollView digunakan ketika layout yang kita buat melebihi kapasitas ukuran layar device. Tanpa ScrollView, konten yang berada di bawah layar tidak akan pernah bisa diakses oleh user. NestedScrollView adalah versi modern yang lebih lancar saat digabungkan dengan komponen lain seperti Toolbar yang bisa menghilang saat di-scroll.\n\n
-                LOREM IPSUM SECTION:\n
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis.\n\n
-                Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.\n\n
-                (Tambahan teks agar scroll makin mantap)\n
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n
-                Selesai membaca? Silakan coba scroll kembali ke atas untuk mengakses Toolbar!" />
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLanjutan teks panjang agar fitur scroll dapat terlihat dengan jelas saat dijalankan di perangkat."
+                android:textSize="16sp" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
