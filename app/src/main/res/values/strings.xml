@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Probe Apps</string>
     <string name="kirim">Kirim</string>
+    <string name="lorem_ipsum_long">Ini adalah teks panjang untuk mencoba fitur ScrollView. Masukkan teks yang sangat banyak di sini agar layar bisa di-scroll sesuai materi pertemuan 5.</string>
 </resources>
