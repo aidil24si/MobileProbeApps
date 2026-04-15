@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/menu_search"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="Search"
+        android:title="Cari"
         app:showAsAction="ifRoom" />
+
     <item
-        android:id="@+id/menu_settings"
-        android:title="Settings"
-        app:showAsAction="never" />
+        android:id="@+id/menu_options"
+        android:title="Opsi Lanjutan"
+        app:showAsAction="never">
+        <menu>
+            <group android:checkableBehavior="all">
+                <item
+                    android:id="@+id/menu_dark_mode"
+                    android:title="Mode Malam" />
+            </group>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/lang_id"
+                    android:title="Bahasa Indonesia"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/lang_en"
+                    android:title="English" />
+            </group>
+        </menu>
+    </item>
 </menu>
