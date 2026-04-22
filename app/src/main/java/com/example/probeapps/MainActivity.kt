@@ -3,6 +3,7 @@ package com.example.probeapps
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,30 +13,49 @@ import com.example.probeapps.databinding.ActivityThirdBinding
 import com.example.probeapps.pertemuan_3.ThirdResultActivity
 import com.example.probeapps.pertemuan_4.FourthActivity
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         enableEdgeToEdge()
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        // ... kode ViewCompat Anda tetap di sini ...
 
-        binding.btnToFourth.setOnClickListener{
+        // Fitur Intent yang sudah ada
+        binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
             startActivity(intent)
+        }
+
+        // --- TAMBAHKAN KODE LOGOUT DI BAWAH INI ---
+        binding.btnLogout.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Konfirmasi Logout")
+            builder.setMessage("Apakah Anda yakin ingin keluar?")
+
+            builder.setPositiveButton("Ya") { _, _ ->
+                // Kembali ke AuthActivity (Login)
+                val intent = Intent(this, AuthActivity::class.java)
+                startActivity(intent)
+                // Menutup MainActivity
+                finish()
+            }
+
+            builder.setNegativeButton("Tidak") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
         }
     }
 }
