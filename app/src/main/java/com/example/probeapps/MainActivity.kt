@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         // ... kode ViewCompat Anda tetap di sini ...
 
+        //Kode ini harus selalu dipanggil saat butuh akses "user_pref"
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
         // Fitur Intent yang sudah ada
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
@@ -38,11 +41,15 @@ class MainActivity : AppCompatActivity() {
 
         // --- TAMBAHKAN KODE LOGOUT DI BAWAH INI ---
         binding.btnLogout.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Konfirmasi Logout")
-            builder.setMessage("Apakah Anda yakin ingin keluar?")
+            AlertDialog.Builder(this)
+            .setTitle("Konfirmasi Logout")
+            .setMessage("Apakah Anda yakin ingin keluar?")
+            .setPositiveButton("Ya") { _, _ ->
+//                dialog.dismiss()
+                val editor = sharedPref.edit()
+                editor.clear()
+                editor.apply()
 
-            builder.setPositiveButton("Ya") { _, _ ->
                 // Kembali ke AuthActivity (Login)
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
@@ -50,12 +57,10 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
 
-            builder.setNegativeButton("Tidak") { dialog, _ ->
+            .setNegativeButton("Tidak") { dialog, _ ->
                 dialog.dismiss()
             }
-
-            val alertDialog = builder.create()
-            alertDialog.show()
+                .show()
         }
     }
 }
