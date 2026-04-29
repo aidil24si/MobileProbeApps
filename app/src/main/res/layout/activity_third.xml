@@ -35,6 +35,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/btnKembali"
+        android:layout_width="185dp"
+        android:layout_height="63dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#3E8026"
+        android:text="Kembali"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="223dp"

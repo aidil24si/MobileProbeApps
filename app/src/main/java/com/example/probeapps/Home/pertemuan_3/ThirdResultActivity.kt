@@ -1,21 +1,33 @@
-package com.example.probeapps.pertemuan_3
+package com.example.probeapps.Home.pertemuan_3
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.probeapps.R
+import com.example.probeapps.databinding.ActivityThirdResultBinding
 
 class ThirdResultActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityThirdResultBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_third_result)
+
+        binding = ActivityThirdResultBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        binding.btnToKembali.setOnClickListener{
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
