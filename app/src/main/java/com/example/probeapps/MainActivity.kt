@@ -30,24 +30,14 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         // Fitur Intent yang sudah ada
-        binding.btnToFourth.setOnClickListener {
-            val intent = Intent(this, FourthActivity::class.java)
+        binding.btnToTwo.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
             startActivity(intent)
         }
 
-        // Fitur Intent yang sudah ada
-        binding.btnToFive.setOnClickListener {
-            val intent = Intent(this, FifthActivity::class.java)
-            intent.putExtra("name", "Politeknik Caltex Riau")
-            intent.putExtra("from", "Rumbai")
-            intent.putExtra("age", 25)
-            startActivity(intent)
-        }
-
-        // Fitur Intent yang sudah ada
         binding.btnToThree.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
@@ -56,9 +46,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Fitur Intent yang sudah ada
-        binding.btnToTwo.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+        binding.btnToFourth.setOnClickListener {
+            val intent = Intent(this, FourthActivity::class.java)
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+            startActivity(intent)
+        }
+
+        binding.btnToFive.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
