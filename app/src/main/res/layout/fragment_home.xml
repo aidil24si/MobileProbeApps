@@ -8,7 +8,27 @@
     tools:context=".Home.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_half_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:columnCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:useDefaultMargins="true"
+        tools:layout_editor_absoluteX="0dp">
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToFourth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.928" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.754" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +64,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.653" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +76,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.754" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToSeventh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,10 +88,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.653" />
 
-    <Button
-        android:id="@+id/btnLogout"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnToNinth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Pertemuan 9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.554"
+        app:layout_constraintTop_toBottomOf="@id/btnToSeventh"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
         android:text="Keluar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,5 +109,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.928" />
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

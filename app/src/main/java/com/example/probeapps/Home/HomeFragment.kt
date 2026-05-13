@@ -14,6 +14,7 @@ import com.example.probeapps.Home.pertemuan_3.ThirdActivity
 import com.example.probeapps.Home.pertemuan_4.FourthActivity
 import com.example.probeapps.Home.pertemuan_5.FifthActivity
 import com.example.probeapps.Home.pertemuan_7.SeventhActivity
+import com.example.probeapps.Home.pertemuan_9.NinthActivity
 import com.example.probeapps.R
 import com.example.probeapps.databinding.FragmentHomeBinding
 
@@ -70,6 +71,11 @@ class HomeFragment : Fragment() {
             intent.putExtra("age", 25)
             startActivity(intent)
         }
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
 
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())

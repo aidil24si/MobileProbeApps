@@ -11,6 +11,7 @@ import com.example.probeapps.Home.pertemuan_3.ThirdActivity
 import com.example.probeapps.Home.pertemuan_4.FourthActivity
 import com.example.probeapps.Home.pertemuan_5.FifthActivity
 import com.example.probeapps.Home.pertemuan_7.SeventhActivity
+import com.example.probeapps.Home.pertemuan_9.NinthActivity
 
 
 class MainActivity : AppCompatActivity() {
