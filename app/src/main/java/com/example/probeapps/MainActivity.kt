@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.probeapps.Home.pertemuan_10.TenthActivity
 import com.example.probeapps.databinding.ActivityMainBinding
 import com.example.probeapps.Home.pertemuan_2.SecondActivity
 import com.example.probeapps.Home.pertemuan_3.ThirdActivity
@@ -65,6 +66,22 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(this, SeventhActivity::class.java)
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+            startActivity(intent)
+        }
+
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(this, NinthActivity::class.java)
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+            startActivity(intent)
+        }
+
+        binding.btnToTenth.setOnClickListener {
+            val intent = Intent(this, TenthActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
