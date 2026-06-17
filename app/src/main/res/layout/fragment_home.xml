@@ -1,152 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home.HomeFragment"
-    tools:layout_editor_absoluteX="-43dp"
-    tools:layout_editor_absoluteY="20dp">
-
-    <!-- TODO: Update blank fragment layout -->
-
+    tools:context=".Home.HomeFragment">
 
     <View
         android:id="@+id/background_header"
         android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="180dp"
         android:background="@drawable/bg_half_circle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="444dp"
-        android:layout_height="371dp"
-        android:layout_marginBottom="16dp"
+    <LinearLayout
+        android:id="@+id/lytInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
         android:padding="16dp"
-        app:columnCount="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:useDefaultMargins="true"
-        tools:layout_editor_absoluteX="-17dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToFourth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kembali"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.009"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.345" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToThree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pertemuan 3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.532"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.345" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pertemuan 2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.345" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToFive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pertemuan 5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.01"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.427" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToSeventh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pertemuan 7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.532"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.427" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToNinth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pertemuan 9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnToSeventh"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnToTenth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pertemuan 10"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.011"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnToSeventh"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogout"
-            android:text="Keluar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.462"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp">
 
         <TextView
             android:id="@+id/tvCatFact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:gravity="center"
             android:text="Loading cat fact..."
-            android:textAlignment="center"
-            android:textSize="18sp" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnRefresh"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="Refresh"
-            app:layout_constraintTop_toBottomOf="@+id/tvCatFact" />
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutMenu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:columnCount="3"
+        app:useDefaultMargins="true"
+        app:layout_constraintTop_toBottomOf="@id/background_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToTwo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToThree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToFourth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Kembali" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToFive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToSeventh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToNinth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 9" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToTenth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 10" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPertemuan13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Pertemuan 13" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="1"
+            android:text="Keluar"
+            android:textColor="@android:color/holo_red_dark" />
 
     </androidx.gridlayout.widget.GridLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

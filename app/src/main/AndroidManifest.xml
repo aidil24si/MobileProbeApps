@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +20,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProbeApps">
+        <activity
+            android:name=".Home.pertemuan_13.ThirteenthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_13.activity_thirteenth"
+            android:exported="false" />
         <activity
             android:name=".Message.Tutorial.TutorialMessageActivity"
             android:exported="false" />
@@ -64,6 +77,19 @@
         <activity
             android:name=".Home.pertemuan_3.ThirdActivity"
             android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
+
+
 
 </manifest>

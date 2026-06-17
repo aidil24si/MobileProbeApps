@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.probeapps.AuthActivity
 import com.example.probeapps.Home.pertemuan_10.TenthActivity
+import com.example.probeapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.probeapps.Home.pertemuan_2.SecondActivity
 import com.example.probeapps.Home.pertemuan_3.ThirdActivity
 import com.example.probeapps.Home.pertemuan_4.FourthActivity
@@ -82,6 +83,8 @@ class HomeFragment : Fragment() {
         }
 
 
+
+
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Konfirmasi Logout")
@@ -103,6 +106,12 @@ class HomeFragment : Fragment() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+
+        // Asumsi kamu menggunakan binding di FragmentHome
+        binding.btnPertemuan13.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
+            startActivity(intent)
         }
     }
 }
