@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,10 +13,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import com.example.probeapps.R
 import com.example.probeapps.databinding.FragmentTabCaptureBinding
+import com.example.probeapps.utils.PermissionHelper
 
+// Catatan: Pastikan class PermissionHelper sudah diimport jika letaknya di package berbeda
+// import com.example.probeapps.utils.PermissionHelper
 
 class TabCaptureFragment : Fragment() {
     private var _binding: FragmentTabCaptureBinding? = null
@@ -41,6 +42,7 @@ class TabCaptureFragment : Fragment() {
             Toast.makeText(context, "Izin kamera diperlukan", Toast.LENGTH_SHORT).show()
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -52,13 +54,20 @@ class TabCaptureFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // --- BAGIAN YANG DIUBAH Sesuai Arahan Modul ---
         binding.btnCapture.setOnClickListener {
-            if (hasCameraPermission()) {
-                openCamera()
+            if (!PermissionHelper.hasPermission(
+                    requireActivity(),
+                    Manifest.permission.CAMERA)) {
+                PermissionHelper.requestPermission(
+                    permissionLauncher,
+                    Manifest.permission.CAMERA
+                )
             } else {
-                permissionLauncher.launch(Manifest.permission.CAMERA)
+                openCamera()
             }
         }
+        // ----------------------------------------------
     }
 
     // Hapus binding saat view dihancurkan untuk mencegah memory leak
@@ -67,12 +76,7 @@ class TabCaptureFragment : Fragment() {
         _binding = null
     }
 
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
+    // (Fungsi hasCameraPermission() sebelumnya di sini sudah DIHAPUS)
 
     private fun openCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)

@@ -1,7 +1,6 @@
 package com.example.probeapps.Home.pertemuan_13
 
 import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,12 +16,16 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.example.probeapps.R
 import com.example.probeapps.databinding.FragmentTabScanBinding
+import com.example.probeapps.utils.PermissionHelper
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+
+// Catatan: Pastikan class PermissionHelper sudah diimport jika letaknya di package berbeda
+// import com.example.probeapps.utils.PermissionHelper
 
 class TabScanFragment : Fragment() {
     private var _binding: FragmentTabScanBinding? = null
@@ -36,8 +39,8 @@ class TabScanFragment : Fragment() {
     //Khusus hanya format QR Code
     private var scanner = BarcodeScanning.getClient(
         BarcodeScannerOptions.Builder()
-        .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-        .build()
+            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+            .build()
     )
 
     // Launcher untuk izin modern
@@ -56,16 +59,24 @@ class TabScanFragment : Fragment() {
         _binding = FragmentTabScanBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    // --- BAGIAN YANG DIUBAH Sesuai Gambar Modul ---
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        if (hasCameraPermission()) {
-            startCamera()
+        if (!PermissionHelper.hasPermission(
+                requireActivity(),
+                Manifest.permission.CAMERA)) {
+            PermissionHelper.requestPermission(
+                permissionLauncher,
+                Manifest.permission.CAMERA
+            )
         } else {
-            permissionLauncher.launch(Manifest.permission.CAMERA)
+            startCamera()
         }
     }
+    // ----------------------------------------------
 
     // Hapus binding & matikan scanner saat view dihancurkan untuk mencegah memory leak
     override fun onDestroyView() {
@@ -75,12 +86,7 @@ class TabScanFragment : Fragment() {
         cameraExecutor.shutdown()
     }
 
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
+    // (Fungsi hasCameraPermission() sebelumnya di sini sudah DIHAPUS)
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
